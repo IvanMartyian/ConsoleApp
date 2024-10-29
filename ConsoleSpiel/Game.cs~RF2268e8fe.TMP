@@ -1,0 +1,410 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleSpiel
+{
+    internal class Program
+    {
+        static string GetUserInput(string prompt, ConsoleColor color, bool printLine)
+        {
+            List<PrintInfo> printInfoList = new List<PrintInfo> { new PrintInfo(prompt, color, printLine) };
+            PrintColored(printInfoList);
+            return Console.ReadLine();
+        }
+
+        static async Task Main()
+        {
+            string Name;
+            string Surname;
+            int Age;
+            string Food;
+            string Hobby;
+
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("HI!! This is my First Program!", ConsoleColor.Cyan, true),
+            });
+
+            Thread.Sleep(2000);
+            Console.WriteLine("\nSo...");
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("What's your ", ConsoleColor.White, false),
+                new PrintInfo("name", ConsoleColor.Green, false),
+                new PrintInfo("?", ConsoleColor.White, true)
+            });
+            Name = Console.ReadLine();
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo>
+            {
+                new PrintInfo("\nWhat's your ", ConsoleColor.White, false),
+                new PrintInfo("surname", ConsoleColor.Green, false),
+                new PrintInfo("?", ConsoleColor.White, true),
+            });
+            Surname = Console.ReadLine();
+
+            Console.WriteLine($"\nNice to meet you, {Name} {Surname}. Welcome to my World!!");
+
+            Thread.Sleep(1000);
+            PrintColored("\nHow ", "old ", ConsoleColor.Green, "are you?\n");
+            Age = Convert.ToInt32(Console.ReadLine());
+
+            if (Age < 18)
+            {
+                Console.WriteLine("\n\nWow, there's a little baby sitting right in front of me!");
+                Thread.Sleep(1000);
+                Console.WriteLine("Well, let's see what you're capable of, cutie.");
+            }
+            else
+            {
+                PrintColored(new List<PrintInfo>
+                {
+                    new PrintInfo("Wow, are you old!!", ConsoleColor.White, true)
+                });
+
+                Thread.Sleep(1000);
+                PrintColored(new List<PrintInfo>
+                {
+                    new PrintInfo("You should be enjoying your retirement by now, but oh well.", ConsoleColor.White, true)
+                });
+            }
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo>
+            {
+                new PrintInfo("\nWhat's your ", ConsoleColor.White, false),
+                new PrintInfo("favorite ", ConsoleColor.DarkMagenta, false),
+                new PrintInfo("food", ConsoleColor.Green, false),
+                new PrintInfo("?", ConsoleColor.White, true)
+            });
+
+            Food = Console.ReadLine();
+            string[] fastFoods = { "burger", "hamburger", "nuggets" };
+            string[] commonFoods = { "pizza", "sushi", "pasta", "chicken", "salad" };
+
+            if (fastFoods.Contains(Food.ToLower()))
+            {
+                PrintColored(new List<PrintInfo>
+                {
+                    new PrintInfo("\nWow! Are you trying to summon an ancient deity with your food choice?", ConsoleColor.White, true)
+                });
+
+                Thread.Sleep(2000);
+                PrintColored(new List<PrintInfo>
+                {
+                    new PrintInfo("I hope it's not too hungry!", ConsoleColor.White, true)
+                });
+            }
+            else if (commonFoods.Contains(Food.ToLower()))
+            {
+                PrintColored(new List<PrintInfo>
+                {
+                    new PrintInfo("\nWow! Are you really hungry?", ConsoleColor.White, true)
+                });
+            }
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo>
+            {
+                new PrintInfo("\nWhat's your ", ConsoleColor.White, false),
+                new PrintInfo("favorite ", ConsoleColor.DarkMagenta, false),
+                new PrintInfo("hobby", ConsoleColor.Green, false),
+                new PrintInfo("?", ConsoleColor.White, true)
+            });
+
+            Hobby = Console.ReadLine();
+            string[] magicHobbies = { "magic", "singing", "dancing", "playing guitar", "guitar", "music", "swimming", "games", "gaming" };
+            string[] commonHobbies = { "sleeping", "reading", "playing football" };
+            string[] extremeHobbies = { "skydiving", "rock climbing", "surfing", "bungee jumping", "parkour" };
+            string[] creativeHobbies = { "writing", "photography", "sculpting", "knitting", "drawing" };
+            string[] techHobbies = { "programming", "robotics", "3d printing", "electronics", "coding" };
+
+            if (CheckInput(magicHobbies, Hobby))
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nHa! Your hobby sounds like a spell from Harry Potter!", ConsoleColor.White, true),
+                });
+                Thread.Sleep(2000);
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("Just don't turn me into a toad, please!", ConsoleColor.White, true),
+                });
+            }
+            else if (CheckInput(commonHobbies, Hobby))
+            {
+                PrintColored("\nAWESOME! That's a great way ", "to relax", ConsoleColor.Green, " and enjoy life.");
+            }
+            else if (CheckInput(extremeHobbies, Hobby))
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nWow, you're quite the adrenaline junkie! Stay safe out there!", ConsoleColor.White, true),
+                });
+            }
+            else if (CheckInput(creativeHobbies, Hobby))
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nAh, an artist at heart! The world needs more creative souls like you.", ConsoleColor.White, true),
+                });
+            }
+            else if (CheckInput(techHobbies, Hobby))
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nA tech enthusiast! You're building the future, one project at a time.", ConsoleColor.White, true),
+                });
+            }
+            else
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo($"\n{Hobby}? That's an interesting hobby! I'd love to hear more about it sometime.", ConsoleColor.White, true),
+                });
+            }
+            StartQuiz();
+        }
+
+        static void StartQuiz()
+        {
+            Thread.Sleep(2000);
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("\nLet's take a little ", ConsoleColor.White, false),
+                new PrintInfo("Quiz", ConsoleColor.White, false),
+            });
+
+            for (int i = 0; i < 10; i++)
+            {
+                PrintColored(new List<PrintInfo> { new PrintInfo(".", ConsoleColor.Cyan, false), });
+                Thread.Sleep(1000);
+            }
+
+            int noCount = 0;
+            while (true)
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nAre you ready?", ConsoleColor.White, true)
+                });
+
+                string readyResponse = Console.ReadLine();
+                if (readyResponse.ToLower() == "yes")
+                {
+                    RunQuiz();
+                    return;
+                }
+                else if (readyResponse.ToLower() == "no")
+                {
+                    noCount++;
+                    HandleNoResponse(noCount);
+                    if (noCount == 15) return;
+                }
+                else
+                {
+                    PrintColored(
+                        new List<PrintInfo> {
+                            new PrintInfo("Please answer with ", ConsoleColor.White, false),
+                            new PrintInfo("yes ", ConsoleColor.Green, false),
+                            new PrintInfo("or ", ConsoleColor.White, false),
+                            new PrintInfo("no", ConsoleColor.DarkRed, false),
+                            new PrintInfo(".", ConsoleColor.White, false),
+                        });
+                }
+            }
+        }
+
+        static void RunQuiz()
+        {
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("\nOk,", ConsoleColor.Green, false),
+                new PrintInfo("let's go.", ConsoleColor.White, false),
+            });
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("\nBut!...?", ConsoleColor.White, false),
+            });
+
+            Thread.Sleep(2000);
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("\nWait!", ConsoleColor.White, false),
+                new PrintInfo("...", ConsoleColor.Cyan, false),
+            });
+
+            Thread.Sleep(2000);
+            for (int i = 0; i < 10; i++)
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo(".", ConsoleColor.Cyan, false),
+                });
+                Thread.Sleep(2000);
+            }
+
+            while (true)
+            {
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\n\nYou are in the middle of a ", ConsoleColor.White, false),
+                    new PrintInfo("forest", ConsoleColor.Green, false),
+                    new PrintInfo(".", ConsoleColor.White, false),
+                });
+
+                Thread.Sleep(3000);
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nThere are three paths in front of you.", ConsoleColor.White, true),
+                });
+
+                Thread.Sleep(3000);
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nChoose a path: ", ConsoleColor.White, false),
+                    new PrintInfo("left", ConsoleColor.Green, false),
+                    new PrintInfo(", ", ConsoleColor.White, false),
+                    new PrintInfo("middle", ConsoleColor.Green, false),
+                    new PrintInfo(", ", ConsoleColor.White, false),
+                    new PrintInfo("right", ConsoleColor.Green, false),
+                    new PrintInfo("?", ConsoleColor.White, false),
+                });
+
+                string choice = Console.ReadLine().ToLower();
+
+                switch (choice)
+                {
+                    case "left":
+                        HandleLeftPath();
+                        return;
+                    case "middle":
+                        HandleMiddlePath();
+                        return;
+                    case "right":
+                    default:
+                        PrintColored(new List<PrintInfo> { new PrintInfo("\nWrong path", ConsoleColor.Red, false), });
+                        break;
+                }
+            }
+        }
+
+        static void HandleLeftPath()
+        {
+            Console.WriteLine("You find yourself at a crossroads.");
+            Thread.Sleep(2000);
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("Do you want to go to the ", ConsoleColor.White, false),
+                new PrintInfo("old house, ", ConsoleColor.Green, false),
+                new PrintInfo("or the ", ConsoleColor.White, false),
+                new PrintInfo("lake", ConsoleColor.Blue, false),
+                new PrintInfo("?", ConsoleColor.White, false),
+            });
+
+            string leftChoice = Console.ReadLine().ToLower();
+
+            if (leftChoice == "old house")
+            {
+                HandleOldHouse();
+            }
+            else if (leftChoice == "lake")
+            {
+                HandleLake();
+            }
+            else
+            {
+                PrintColored(new List<PrintInfo> { new PrintInfo("Wrong path", ConsoleColor.Red, false), });
+            }
+        }
+
+        static void HandleOldHouse()
+        {
+            Console.WriteLine("You are in the Old House.");
+
+            Thread.Sleep(1500);
+            Console.WriteLine("\nYou heard a noise.");
+
+            Thread.Sleep(2500);
+            Console.WriteLine("\nAnd you found the room the noise was coming from.");
+            Thread.Sleep(2000);
+            Console.WriteLine("\nYou open the door.");
+            Thread.Sleep(2500);
+            Console.WriteLine("\nYou see Goku.");
+            Thread.Sleep(2500);
+            Console.WriteLine("\nYou went on a journey with him.");
+
+            Thread.Sleep(1500);
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("\nYou win!!", ConsoleColor.Green, false),
+            });
+
+            Thread.Sleep(4500);
+            Environment.Exit(0);
+        }
+
+        static void HandleLake()
+        {
+            Console.Write("\nYou see a beautiful lake,");
+
+            Thread.Sleep(1500);
+            Console.Write("\napproach it,");
+            Thread.Sleep(1500);
+            Console.Write("\nsee your reflection,");
+
+            if (Hobby.ToLower().Contains("swimming"))
+            {
+                Thread.Sleep(1500);
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nand swim to the ", ConsoleColor.White, false),
+                    new PrintInfo("sea", ConsoleColor.Blue, false),
+                });
+
+                Thread.Sleep(1500);
+                PrintColored(new List<PrintInfo> {
+                    new PrintInfo("\nYou win!!", ConsoleColor.Green, false),
+                });
+
+                Thread.Sleep(4500);
+                Environment.Exit(0);
+            }
+            Thread.Sleep(1000);
+            Console.Write("\nand collapse from a ");
+            PrintColored(new List<PrintInfo> { new PrintInfo("heart attack.", ConsoleColor.Red, false), });
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo> { new PrintInfo("\n\nGAME OVER", ConsoleColor.Red, false), });
+
+            Thread.Sleep(4000);
+            Environment.Exit(0);
+        }
+
+        static void HandleMiddlePath()
+        {
+            PrintColored(new List<PrintInfo> {
+                new PrintInfo("You see a ", ConsoleColor.White, false),
+                new PrintInfo("Mountain!", ConsoleColor.Blue, false),
+            });
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo> { new PrintInfo("\nYou're freezing.", ConsoleColor.Blue, false), });
+
+            Thread.Sleep(1000);
+            PrintColored(new List<PrintInfo> { new PrintInfo("\nYou are dead!", ConsoleColor.Red, false), });
+
+            Thread.Sleep(4000);
+            Environment.Exit(0);
+        }
+
+        static void HandleNoResponse(int noCount)
+        {
+            switch (noCount)
+            {
+                case 5:
+                    PrintColored(new List<PrintInfo> { new PrintInfo("Ha-ha, you're so indecisive!", ConsoleColor.DarkMagenta, false), });
+                    break;
+                case 10:
+                    PrintColored(new List<PrintInfo> { new PrintInfo("Oh come on, enough already!", ConsoleColor.DarkMagenta, false), });
+                    break;
+                case 15:
+                    PrintColored(
+                        new List<PrintInfo> {
+                            new PrintInfo("Alright, you said ", ConsoleColor.White, false),
+                            new PrintInfo("no ", ConsoleColor.Red, false),
+                            new PrintInfo("so ", ConsoleColor.White, false),
+                            new PrintInfo("no ", ConsoleColor.DarkRed, false),
+                            new PrintInfo("it shall be.", ConsoleColor.White,
+                            break;
+                            }
+                        }
+        }

@@ -5,6 +5,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|c:\\users\\martyiani\\source\\repos\\consolespiel\\consolespiel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\consolespiel\\playmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\playmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\consolespiel\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\consolespiel\\printinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\printinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,10 +36,59 @@
               "RelativeDocumentMoniker": "ConsoleSpiel\\Program.cs",
               "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\Program.cs",
               "RelativeToolTip": "ConsoleSpiel\\Program.cs",
-              "ViewState": "AgIAAC0CAAAAAAAAAAAAwDcCAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAANgAAAAAAAAAAAAQwO8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T07:34:17.794Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayMusic.cs",
+              "DocumentMoniker": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\PlayMusic.cs",
+              "RelativeDocumentMoniker": "ConsoleSpiel\\PlayMusic.cs",
+              "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\PlayMusic.cs",
+              "RelativeToolTip": "ConsoleSpiel\\PlayMusic.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAuwC0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T10:57:51.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\Game.cs",
+              "RelativeDocumentMoniker": "ConsoleSpiel\\Game.cs",
+              "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\Game.cs",
+              "RelativeToolTip": "ConsoleSpiel\\Game.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T10:04:14.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PrintInfo.cs",
+              "DocumentMoniker": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\PrintInfo.cs",
+              "RelativeDocumentMoniker": "ConsoleSpiel\\PrintInfo.cs",
+              "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\PrintInfo.cs",
+              "RelativeToolTip": "ConsoleSpiel\\PrintInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T10:14:25.618Z"
             }
           ]
         }
