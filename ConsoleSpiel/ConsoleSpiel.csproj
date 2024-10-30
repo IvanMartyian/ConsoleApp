@@ -89,7 +89,10 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Music\elevator.mp3" />
+    <Content Include="Music\ending.mp3" />
+    <Content Include="Music\secretEnding.mp3" />
     <Content Include="Music\start.wav" />
+    <Content Include="Music\threePath.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
