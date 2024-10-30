@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,12 +14,27 @@ namespace ConsoleSpiel
     {
         private static PlayMusic MusicElevator;
         private static PlayMusic MusicStart;
+
         static void GlobalMusicHere() 
         {
-            string[] musicFiles = { @"C:\Users\MartyianI\source\repos\ConsoleSpiel\ConsoleSpiel\Music\elevator.mp3", @"C:\Users\MartyianI\source\repos\ConsoleSpiel\ConsoleSpiel\Music\start.wav" };
+
+            string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.FullName;
+            string musicalDirectory = Path.Combine(projectDirectory, "Music");
+            string[] musicFiles = {
+            Path.Combine(musicalDirectory, "elevator.mp3"),
+            Path.Combine(musicalDirectory, "start.wav")};
+
+            if(!File.Exists(musicFiles[0])|| !File.Exists(musicFiles[1]))
+            {
+                Console.WriteLine("Musikdateien nicht gefunden. Bitte überprüfen Sie den Pfad:");
+                Console.WriteLine(musicFiles[0]);
+                Console.WriteLine(musicFiles[1]);
+                return;
+            }
+            //Initialisieren der PlayMusic-Objekte
             MusicElevator = new PlayMusic(musicFiles[0]);
             MusicStart = new PlayMusic(musicFiles[1]);
-           
         }
 
         static void StopAllMusic()

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|c:\\users\\martyiani\\source\\repos\\consolespiel\\consolespiel\\playmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\playmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\consolespiel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|c:\\users\\martyiani\\source\\repos\\consolespiel\\consolespiel\\playmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|solutionrelative:consolespiel\\playmusic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{382DA0D5-956E-4325-AC27-96962D5DBFC2}|ConsoleSpiel\\ConsoleSpiel.csproj|C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\consolespiel\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,20 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\Program.cs",
               "RelativeDocumentMoniker": "ConsoleSpiel\\Program.cs",
               "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\Program.cs",
               "RelativeToolTip": "ConsoleSpiel\\Program.cs",
-              "ViewState": "AgIAAFUCAAAAAAAAAAAgwGYCAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T07:34:17.794Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -55,13 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayMusic.cs",
               "DocumentMoniker": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\PlayMusic.cs",
               "RelativeDocumentMoniker": "ConsoleSpiel\\PlayMusic.cs",
               "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\PlayMusic.cs",
               "RelativeToolTip": "ConsoleSpiel\\PlayMusic.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAYwGIAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwB0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-29T10:57:51.563Z",
               "EditorCaption": ""
