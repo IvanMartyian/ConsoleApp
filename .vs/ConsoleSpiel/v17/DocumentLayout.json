@@ -31,11 +31,15 @@
               "RelativeDocumentMoniker": "ConsoleSpiel\\Program.cs",
               "ToolTip": "C:\\Users\\MartyianI\\source\\repos\\ConsoleSpiel\\ConsoleSpiel\\Program.cs",
               "RelativeToolTip": "ConsoleSpiel\\Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAQwEYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwEYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-30T15:31:10.055Z",
               "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Bookmark",
@@ -44,6 +48,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
