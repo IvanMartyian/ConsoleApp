@@ -42,7 +42,7 @@ namespace ConsoleSpiel
                 throw;
             }
         }
-        //Startet das angegebene Music-Objekt von der Stelle, an der es das Letze Mal beendet wurde.
+
         public void PlayLooping()
         {
             try
@@ -53,13 +53,13 @@ namespace ConsoleSpiel
                 }
                 if (outputDevice.PlaybackState != PlaybackState.Playing)
                 {
-                    outputDevice.PlaybackStopped += OnPlaybackStopped;
                     outputDevice.Play();
+                    outputDevice.PlaybackStopped += OnPlaybackStopped;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Fehler beim Abspielen der Musik: {ex.Message}"); //TODO: Die Musik wird nicht richtig gestoppt; Die Musik kann gestoppt werden, aber nach dem Stoppen kann die gleiche Musik nicht erneut abgespielt werden.
+                Console.WriteLine($"Fehler beim Abspielen der Musik: {ex.Message}");
             }
         }
 
@@ -67,7 +67,6 @@ namespace ConsoleSpiel
         {
             try
             {
-                Initialize();
                 if (audioFile != null && outputDevice != null)
                 {
                     audioFile.Position = 0;
@@ -81,15 +80,15 @@ namespace ConsoleSpiel
                 Initialize();
             }
         }
-        //Stopt Music-Objekt und löscht alle Wiedergabeobjekt deshalb muss die objekt neu Inizializiren.
+
         public void Stop()
         {
             if (outputDevice != null)
             {
                 if (outputDevice != null)
                 {
-                    outputDevice.PlaybackStopped -= OnPlaybackStopped;
                     outputDevice.Stop();
+                    outputDevice.PlaybackStopped -= OnPlaybackStopped;
                     outputDevice.Dispose();
                     //outputDevice = null;
                 }
@@ -104,16 +103,6 @@ namespace ConsoleSpiel
         public bool IsPlaying()
         {
             return outputDevice != null && outputDevice.PlaybackState == PlaybackState.Playing;
-        }
-
-        //Stopt das angegegebene Music-Objekt an den Moment, wenn sie abgespielt wird, startet von gleichen Stelle die Music abspilen
-        internal void StopPlaying()
-        {
-            if (outputDevice != null)
-            {
-                outputDevice.PlaybackStopped -= OnPlaybackStopped;
-                outputDevice.Stop();
-            }
         }
     }
 }

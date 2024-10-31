@@ -50,7 +50,6 @@ namespace ConsoleSpiel
             MusicSecretEnding = new PlayMusic(musicFiles[4]);
         }
 
-        //Stopt allen Music-Objekten und löscht alle Wiedergabedateien
         static void StopAllMusic()
         {
             MusicStart.Stop();
@@ -60,28 +59,12 @@ namespace ConsoleSpiel
             MusicSecretEnding.Stop();
         }
 
-        //Startet die angegebene Music-Objekt
-        private static void PlaySpecificMusic(PlayMusic music)
-        {
-            StopAllMusicPlayback();
-            music.PlayLooping();
-        }
-
-        //Stopt alle die angegegebene Music-Objekt an den Moment, wenn sie abgespielt wird, startet von gleichen Stelle die Music abspilen
-        private static void StopAllMusicPlayback()
-        {
-            MusicStart.StopPlaying();
-            MusicElevator.StopPlaying();
-            MusicThreePath.StopPlaying();
-            MusicEnding.StopPlaying();
-            MusicSecretEnding.StopPlaying();
-        }
-
         static string Hobby;
         static void Main()
         {
             GlobalMusicHere();
-            PlaySpecificMusic(MusicStart);
+
+            MusicStart.PlayLooping();
 
             string Name;
             string Surname;
@@ -102,7 +85,6 @@ namespace ConsoleSpiel
                 new PrintInfo("?", ConsoleColor.White, true)
             });
             Name = Console.ReadLine();
-            
 
             Thread.Sleep(1000);
             PrintColored(new List<PrintInfo>
@@ -139,7 +121,6 @@ namespace ConsoleSpiel
                 Thread.Sleep(1000);
                 PrintColored(new List<PrintInfo> { new PrintInfo("\nYou should be enjoying your retirement by now, but oh well.", ConsoleColor.White, false) });
             }
-            
 
             Thread.Sleep(1000);
             PrintColored(new List<PrintInfo> { new PrintInfo("\nWhat's your ", ConsoleColor.White, false), new PrintInfo("favorite ", ConsoleColor.DarkMagenta, false), new PrintInfo("food", ConsoleColor.Green, false), new PrintInfo("?", ConsoleColor.White, true) });
@@ -220,7 +201,6 @@ namespace ConsoleSpiel
                     new PrintInfo($"\n{Hobby}? That's an interesting hobby! I'd love to hear more about it sometime.", ConsoleColor.White, true),
                 });
             }
-            MusicStart.StopPlaying();
             StartQuiz();
         }
 
@@ -229,7 +209,6 @@ namespace ConsoleSpiel
         {
             
             MusicElevator.PlayLooping();
-
             Thread.Sleep(700);
             MusicStart.Stop();
 
@@ -243,14 +222,12 @@ namespace ConsoleSpiel
                 PrintColored(new List<PrintInfo> { new PrintInfo(".", ConsoleColor.Cyan, false), });
                 Thread.Sleep(500);
             }
+            MusicElevator.Stop();
 
-            MusicElevator.StopPlaying();
-             
             int nocount = 0;
-
-            while (nocount <= 15)
+            while (true)
             {
-                //MusicElevator.Stop();
+
                 PrintColored(new List<PrintInfo> {
                   new PrintInfo("\nAre you ready?", ConsoleColor.White, true)});
 
@@ -285,6 +262,7 @@ namespace ConsoleSpiel
 
         static void RunQuiz()
         {
+            GlobalMusicHere();
 
             PrintColored(new List<PrintInfo> {
                         new PrintInfo("\nOk,", ConsoleColor.Green, false),
@@ -301,7 +279,7 @@ namespace ConsoleSpiel
             MusicElevator.PlayLooping();
             
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             PrintColored(new List<PrintInfo>
             {
              new PrintInfo("\nWait!", ConsoleColor.White, false),
@@ -319,13 +297,11 @@ namespace ConsoleSpiel
                 Thread.Sleep(500);
             }
 
-            MusicElevator.StopPlaying();
-
+            MusicElevator.Stop();
 
             while (true)
             {
-
-            MusicThreePath.PlayLooping();
+                MusicThreePath.PlayLooping();
 
                 PrintColored(new List<PrintInfo> {
           new PrintInfo("\n\nYou are in the middle of a ", ConsoleColor.White, false),
@@ -353,6 +329,7 @@ namespace ConsoleSpiel
                         return;
 
                     case "middle":
+                        MusicThreePath.Stop();
                         HandleMiddlePath();
                         return;
 
@@ -388,12 +365,12 @@ namespace ConsoleSpiel
 
             if (leftChoice == "old house")
             {
-                MusicThreePath.StopPlaying();
+                StopAllMusic();
                 HandleOldHouse();
             }
             else if (leftChoice == "lake")
             {
-                MusicThreePath.StopPlaying();
+                StopAllMusic();
                 HandleLake();
             }
             else
@@ -404,7 +381,7 @@ namespace ConsoleSpiel
 
         static void HandleOldHouse()
         {
-            //GlobalMusicHere();
+            GlobalMusicHere();
             MusicSecretEnding.PlayLooping();
 
                 Console.WriteLine("You are in the Old House.");
@@ -418,12 +395,11 @@ namespace ConsoleSpiel
                 MusicSecretEnding.Stop();
 
                 Thread.Sleep(2000);
-                PrintColored(new List<PrintInfo> { new PrintInfo( "\nYou open the door.", ConsoleColor.Red,true)});
+                Console.WriteLine("\nYou open the door.");
                 Thread.Sleep(2500);
 
                 MusicEnding.PlayLooping();
-
-                PrintColored(new List<PrintInfo> { new PrintInfo("\nYou see Goku.", ConsoleColor.White, true) });
+                Console.WriteLine("\nYou see Goku.");
                 Thread.Sleep(2500);
                 Console.WriteLine("\nYou went on a journey with him.");
 
@@ -436,8 +412,8 @@ namespace ConsoleSpiel
 
         static void HandleLake()
         {
-            
-            PlaySpecificMusic(MusicSecretEnding);
+            StopAllMusic();
+            MusicSecretEnding.PlayLooping();
 
             Console.Write("\nYou see a beautiful lake,");
 
@@ -445,7 +421,7 @@ namespace ConsoleSpiel
                 Console.Write("\napproach it,");
                 Thread.Sleep(1500);
                 Console.Write("\nsee your reflection,");
-                MusicSecretEnding.StopPlaying();
+                MusicSecretEnding.Stop();
                 MusicEnding.PlayLooping();
 
                 if (Hobby.ToLower().Contains("swimming"))
@@ -465,7 +441,7 @@ namespace ConsoleSpiel
                 Console.Write("\nand collapse from a ");
                 PrintColored(new List<PrintInfo> { new PrintInfo("heart attack.", ConsoleColor.Red, false), });
 
-                Thread.Sleep(950);
+                Thread.Sleep(900);
                 PrintColored(new List<PrintInfo> { new PrintInfo("\n\nGAME OVER", ConsoleColor.Red, false), });
 
                 Thread.Sleep(4000);
@@ -477,7 +453,9 @@ namespace ConsoleSpiel
 
         static void HandleMiddlePath()
         {
-            PlaySpecificMusic(MusicEnding);
+            StopAllMusic();
+            GlobalMusicHere();
+            MusicEnding.PlayLooping();
 
             PrintColored(new List<PrintInfo>
             {new PrintInfo("You see a ", ConsoleColor.White, false),
@@ -498,7 +476,8 @@ namespace ConsoleSpiel
 
         static void SecretEnding()
         {
-            PlaySpecificMusic(MusicSecretEnding);
+            StopAllMusic();
+            MusicSecretEnding.PlayLooping();
 
             PrintColored(
                  new List<PrintInfo> { new PrintInfo("\nYou find yourself on a ", ConsoleColor.White, false),
@@ -559,8 +538,8 @@ namespace ConsoleSpiel
             Console.Write("\nYou pass by the ");
             PrintColored(new List<PrintInfo> { new PrintInfo("old man ", ConsoleColor.DarkMagenta, false),
                             new PrintInfo("and encounter another one.",ConsoleColor.White,false)});
-
-            PlaySpecificMusic(MusicEnding);
+            MusicSecretEnding.Stop();
+            MusicEnding.PlayLooping();
 
             Thread.Sleep(1500);
             Console.WriteLine("\nThe new old man asks: ");
@@ -706,12 +685,12 @@ namespace ConsoleSpiel
                     break;
 
                 default:
-                    PrintColored(new List<PrintInfo> 
-                    { new PrintInfo("Please answer with ", ConsoleColor.White, false),
-                      new PrintInfo("yes ", ConsoleColor.Green, false),
-                      new PrintInfo("or ", ConsoleColor.White, false),
-                      new PrintInfo("no", ConsoleColor.DarkRed, false),
-                      new PrintInfo(".", ConsoleColor.White, false), });
+                    PrintColored(
+                                      new List<PrintInfo> { new PrintInfo("Please answer with ", ConsoleColor.White, false),
+                            new PrintInfo("yes ", ConsoleColor.Green, false),
+                            new PrintInfo("or ", ConsoleColor.White, false),
+                            new PrintInfo("no", ConsoleColor.DarkRed, false),
+                            new PrintInfo(".", ConsoleColor.White, false), });
                     break;
             }
 

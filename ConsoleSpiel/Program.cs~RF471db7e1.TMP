@@ -50,7 +50,6 @@ namespace ConsoleSpiel
             MusicSecretEnding = new PlayMusic(musicFiles[4]);
         }
 
-        //Stopt allen Music-Objekten und löscht alle Wiedergabedateien
         static void StopAllMusic()
         {
             MusicStart.Stop();
@@ -60,14 +59,12 @@ namespace ConsoleSpiel
             MusicSecretEnding.Stop();
         }
 
-        //Startet die angegebene Music-Objekt
         private static void PlaySpecificMusic(PlayMusic music)
         {
             StopAllMusicPlayback();
             music.PlayLooping();
         }
 
-        //Stopt alle die angegegebene Music-Objekt an den Moment, wenn sie abgespielt wird, startet von gleichen Stelle die Music abspilen
         private static void StopAllMusicPlayback()
         {
             MusicStart.StopPlaying();
@@ -81,7 +78,9 @@ namespace ConsoleSpiel
         static void Main()
         {
             GlobalMusicHere();
+
             PlaySpecificMusic(MusicStart);
+            //MusicStart.PlayLooping();
 
             string Name;
             string Surname;
@@ -257,6 +256,7 @@ namespace ConsoleSpiel
                 string readyResponse = Console.ReadLine();
                 if (readyResponse.ToLower() == "yes")
                 {
+                    
                     RunQuiz();
                     return;
                 }
@@ -301,7 +301,7 @@ namespace ConsoleSpiel
             MusicElevator.PlayLooping();
             
 
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             PrintColored(new List<PrintInfo>
             {
              new PrintInfo("\nWait!", ConsoleColor.White, false),
@@ -418,12 +418,11 @@ namespace ConsoleSpiel
                 MusicSecretEnding.Stop();
 
                 Thread.Sleep(2000);
-                PrintColored(new List<PrintInfo> { new PrintInfo( "\nYou open the door.", ConsoleColor.Red,true)});
+                Console.WriteLine("\nYou open the door.");
                 Thread.Sleep(2500);
 
                 MusicEnding.PlayLooping();
-
-                PrintColored(new List<PrintInfo> { new PrintInfo("\nYou see Goku.", ConsoleColor.White, true) });
+                Console.WriteLine("\nYou see Goku.");
                 Thread.Sleep(2500);
                 Console.WriteLine("\nYou went on a journey with him.");
 
@@ -445,7 +444,7 @@ namespace ConsoleSpiel
                 Console.Write("\napproach it,");
                 Thread.Sleep(1500);
                 Console.Write("\nsee your reflection,");
-                MusicSecretEnding.StopPlaying();
+                MusicSecretEnding.Stop();
                 MusicEnding.PlayLooping();
 
                 if (Hobby.ToLower().Contains("swimming"))
@@ -465,7 +464,7 @@ namespace ConsoleSpiel
                 Console.Write("\nand collapse from a ");
                 PrintColored(new List<PrintInfo> { new PrintInfo("heart attack.", ConsoleColor.Red, false), });
 
-                Thread.Sleep(950);
+                Thread.Sleep(900);
                 PrintColored(new List<PrintInfo> { new PrintInfo("\n\nGAME OVER", ConsoleColor.Red, false), });
 
                 Thread.Sleep(4000);
@@ -477,7 +476,7 @@ namespace ConsoleSpiel
 
         static void HandleMiddlePath()
         {
-            PlaySpecificMusic(MusicEnding);
+            PlaySpecificMusic(MusicSecretEnding);
 
             PrintColored(new List<PrintInfo>
             {new PrintInfo("You see a ", ConsoleColor.White, false),
